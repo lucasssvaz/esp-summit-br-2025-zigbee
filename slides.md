@@ -1,6 +1,6 @@
 ---
 # You can also start simply with 'default'
-theme: seriph
+theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
@@ -23,6 +23,9 @@ mdc: true
 # open graph
 # seoMeta:
 #  ogImage: https://cover.sli.dev
+# Config required for slidev-component-poll addon
+pollSettings:
+  anonymous: true
 ---
 
 # Welcome to Slidev
@@ -306,32 +309,38 @@ Also, HTML elements are valid:
 class: px-20
 ---
 
-# Themes
+# Themes (edited for slidev-esp-template)
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+🚫 Please stick with the **default** theme chosen for the **slidev-esp-template**.
 
-<div grid="~ cols-2 gap-2" m="t-2">
+<div class="relative opacity-20 pointer-events-none">
 
-```yaml
----
-theme: default
----
-```
+  Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
 
-```yaml
----
-theme: seriph
----
-```
+  <div grid="~ cols-2 gap-2" m="t-2">
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
+  ```yaml
+  ---
+  theme: default
+  ---
+  ```
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
+  ```yaml
+  ---
+  theme: seriph
+  ---
+  ```
+
+  <img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
+
+  <img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
+
+  </div>
+
+  Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
+  check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
 
 </div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
 
 ---
 
@@ -625,6 +634,20 @@ sayHello()
 console.log(`vue ${version}`)
 console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
 ```
+
+---
+
+# Poll and Quiz (added in slidev-esp-template)
+
+Slidev provide an addon for [Poll and Quiz](https://github.com/Smile-SA/slidev-component-poll?tab=readme-ov-file).
+
+Here is a simple poll:
+
+<Poll
+  question="What is your favorite color ?"
+  :answers="['Red', 'Green', 'Blue']"
+  displayResults="poll"
+/>
 
 ---
 layout: center
