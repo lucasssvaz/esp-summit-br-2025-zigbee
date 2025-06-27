@@ -14,24 +14,59 @@ The template is based on the Slidev [Getting Started](https://sli.dev/guide/) pr
   - *Poll and Quiz*
 
 
-## Required software
+## Installation and configuration
 
-Slidev requires `Node.js` and `npm`. To install these packages, consider using [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating).
+The instructions below may seem detailed, but that's intentional — the Node.js ecosystem can be unintuitive for those who don’t work with it regularly.
 
+These steps have been tested on Linux. The general approach should be similar on Windows and macOS, but some adjustments may be necessary.
+If you run into major issues, feel free to open an issue — we’ll do our best to update the instructions accordingly.
+
+### Software dependencies
+
+Slidev requires `Node.js`, which can be conveniently installed using [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating):
+
+```sh
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.nvm/nvm.sh
+# Install Node.js (LTS version includes npm)
+nvm install --lts
+# Install pnpm globally (recommended over npm for faster installs and disk efficiency)
+npm install -g pnpm
+```
+
+
+### Template setup
+
+To create your presentation:
+
+1. On the GitHub repo page, click **Use this template** in the top-right corner.
+    - This creates a new repo under your GitHub account with the contents of `slidev-esp-template`.
+2. Clone your new repo:
+    ```sh
+    git clone https://github.com/YOUR_USERNAME/slidev-esp-template.git
+    cd ~/path/to/slidev-esp-template/
+    ```
+3. Install project dependencies:
+    ```sh
+    pnpm install
+    ```
+4. (Optional but recommended) Set up your environment to use Slidev globally:
+    ```sh
+    # Create a global bin directory and add it to your shell's PATH
+    pnpm setup
+    # Restart your shell
+    # Install the Slidev CLI globally
+    pnpm add -g @slidev/cli
+    ```
+    💡 If you prefer not to install anything globally, you can run Slidev using `pnpm exec slidev`.
 
 ## Usage
 
-To create your own project:
-
-1. On the GitHub repo page, click **Use this template** in the top right corner.
-    - This creates a new repo under your GitHub account with the copy of `slidev-esp-template`.
-2. Clone the new repo.
-
 To start the slide show:
 
-- `pnpm install`
-- `pnpm dev`
-- visit <http://localhost:3030>
+- Run `slidev`
+- Visit <http://localhost:3030>
 
 Edit the [slides.md](./slides.md) to see the changes.
 
