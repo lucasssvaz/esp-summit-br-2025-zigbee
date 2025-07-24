@@ -35,6 +35,8 @@ layoutClass: gap-16
 
 ::right::
 
-<div class="scale-75 origin-top mx-auto">
-  <ZigbeeGraph />
+<div class="flex items-center justify-center h-full">
+  <div class="scale-75">
+    <ZigbeeGraph />
+  </div>
 </div>
