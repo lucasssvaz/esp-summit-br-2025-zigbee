@@ -10,7 +10,7 @@ layoutClass: gap-16
 - **2.4 GHz** frequency band
 - **IEEE 802.15.4** standard
 - **Mesh networking** - devices relay data
-- **Low latency** - < 100ms response
+- **Low latency** - fast response
 - **Interoperable** - Zigbee Alliance certified
 
 <div class="mt-14"></div>

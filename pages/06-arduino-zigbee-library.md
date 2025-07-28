@@ -14,9 +14,10 @@ layoutClass: gap-16
 - **Arduino API** - familiar programming model
 
 ## Key Features
-- **All device roles** - Coordinator, Router, End Device
-- **Multiple endpoints** - up to 240 per device
-- **Standard clusters** - On/Off, Temperature, etc.
+- **All device roles** - coordinator, Router, End Device
+- **Rich endpoint types** - 20+ device classes
+- **Multiple endpoints support** - up to 240 per device
+- **Network management** - scanning, commisioning,  binding, ...
 - **Security support** - AES encryption
 - **OTA updates** - over-the-air firmware
 
@@ -45,8 +46,8 @@ layoutClass: gap-16
         </div>
       </div>
       <div class="mt-3 p-2 bg-blue-50 rounded text-xs">
-        <code>#include &lt;ZigbeeDevice.h&gt;</code>
+        <code>#include &lt;Zigbee.h&gt;</code>
       </div>
     </div>
   </div>
-</div> 
+</div>

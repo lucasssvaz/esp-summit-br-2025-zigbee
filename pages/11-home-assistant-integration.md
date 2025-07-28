@@ -8,16 +8,17 @@ layoutClass: gap-16
 **Seamless Zigbee device integration**
 
 ## Auto-Discovery
-- **Zigbee2MQTT** - popular coordinator
-- **ZHA** - Home Assistant's built-in
-- **Zigbee2Tasmota** - Tasmota integration
-- **Automatic pairing** - no manual config
+- **ZHA** - Home Assistant's built-in Zigbee integration
+- **Zigbee2MQTT** - alternative integration with MQTT broker
+- **Standard HA profile** - Arduino library uses Home Automation profile
+- **Custom setup** - needed for OTA updates or customised clusters
 
 ## Device Recognition
-- **Standard clusters** - recognized automatically
-- **Device profiles** - proper entity creation
-- **State reporting** - real-time updates
-- **Command support** - full control
+- **Standard clusters** - recognized automatically (On/Off, Level, etc.)
+- **Device profiles** - proper entity creation based on endpoint types
+- **Automatic reporting** - configured intervals send updates
+- **Command support** - bidirectional control (HA → device)
+- **Battery monitoring** - voltage and percentage for sleepy devices
 
 ::right::
 

@@ -8,16 +8,14 @@ layoutClass: gap-16
 **Getting devices into Home Assistant**
 
 ## Pairing Process
-- **Enable pairing** - coordinator in join mode
-- **Device activation** - power on or button press
-- **Network join** - automatic association
-- **Entity creation** - HA auto-discovers
+- **Enable pairing** - click Add Zigbee device
+- **Device activation** - power on ESP32 device (auto-joins), must be in factory new state
+- **Network scanning** - device finds coordinator automatically
+- **Entity creation** - HA creates entities based on endpoints
 
 ## Troubleshooting
-- **Signal strength** - check device proximity
-- **Battery level** - ensure sufficient power
-- **Network capacity** - limit device count
-- **Interference** - avoid 2.4GHz conflicts
+- **Factory reset** - long button press if device won't join
+- **Low LQI** - move device closer to coordinator or add router devices
 
 ::right::
 
@@ -28,27 +26,19 @@ layoutClass: gap-16
       <div class="flex flex-col space-y-2 text-xs">
         <div class="flex items-center space-x-2">
           <div class="w-4 h-4 bg-green-500 rounded-full"></div>
-          <span>Coordinator powered on</span>
+          <span>ZHA permit joining enabled</span>
         </div>
         <div class="flex items-center space-x-2">
           <div class="w-4 h-4 bg-green-500 rounded-full"></div>
-          <span>HA integration active</span>
+          <span>ESP32 device powered on</span>
         </div>
         <div class="flex items-center space-x-2">
           <div class="w-4 h-4 bg-green-500 rounded-full"></div>
-          <span>Device in pairing mode</span>
+          <span>Device auto-joins network</span>
         </div>
         <div class="flex items-center space-x-2">
           <div class="w-4 h-4 bg-green-500 rounded-full"></div>
-          <span>Within 10m range</span>
-        </div>
-        <div class="flex items-center space-x-2">
-          <div class="w-4 h-4 bg-green-500 rounded-full"></div>
-          <span>Battery sufficient</span>
-        </div>
-        <div class="flex items-center space-x-2">
-          <div class="w-4 h-4 bg-green-500 rounded-full"></div>
-          <span>No WiFi interference</span>
+          <span>Entities appear in HA</span>
         </div>
       </div>
     </div>

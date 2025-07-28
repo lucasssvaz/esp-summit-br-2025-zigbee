@@ -8,17 +8,20 @@ layoutClass: gap-16
 **Building Zigbee devices with ESP32**
 
 ## Key Takeaways
-- **ESP32 supports Zigbee** - all models work
-- **Arduino library included** - no installation needed
-- **Home Assistant ready** - auto-discovery works
-- **Battery operation** - long life possible
-- **Standards compliant** - Zigbee 3.0 support
+- **ESP32-C6/C5/H2 support Zigbee** - only models with IEEE 802.15.4 radio
+- **UART co-processor option** - for other ESP32 models via external radio
+- **Arduino library included** - built into ESP32 Arduino Core 3.x+
+- **All Zigbee roles supported** - The ESP can cat as coorinator, router or enddevice
+- **Home Assistant ready** - ZHA auto-discovery with HA profile
+- **Battery & mains operation** - sleepy end devices or always-on routers
+- **Standards compliant** - Zigbee 3.0 with 20+ endpoint types
 
 ## Next Steps
-- **Start with simple devices** - On/Off switches
-- **Add sensors gradually** - temperature, motion
-- **Explore advanced features** - multi-endpoint devices
-- **Join the community** - share your projects
+- **Start with simple devices** - lights with On/Off cluster
+- **Add sensor functionality** - temperature, humidity, occupancy
+- **Explore multi-endpoint** - HVAC systems, combined devices
+- **Optimize for deployment** - battery life, mesh topology
+- **Join the community** - share projects and improvements
 
 ::right::
 

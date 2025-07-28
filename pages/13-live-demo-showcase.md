@@ -8,16 +8,16 @@ layoutClass: gap-16
 **Real-world Zigbee implementations**
 
 ## Demo Devices
-- **Smart light switch** - ESP32 + relay
-- **Temperature sensor** - ESP32-C3 + DHT22
-- **Motion detector** - ESP32-S3 + PIR
-- **RGB light strip** - ESP32 + WS2812B
+- **Window Covering** - ESP32C6 + M5Stack Glass unit for simulating the window
+- **Vibration detector** - ESP32-C6 + SW-420
+- **CO2, tmperature and humidity sensor** - ESP32-C6 + SCD41
 
 ## Demo Scenarios
-- **Device pairing** - live network join
-- **Home Assistant control** - real-time commands
-- **Automation triggers** - sensor responses
-- **Battery monitoring** - power management
+- **Live network status** - all devices connected via Zigbee dongle
+- **Home Assistant dashboard** - real-time sensor data display
+- **Automation triggers** - vibration detection control other demos LEDS
+- **Window covers control** - Covers can be controlled from dashboard or buttons on display
+- **Environmental monitoring** - temperature, humidity, CO2 tracking
 
 ::right::
 
@@ -27,28 +27,28 @@ layoutClass: gap-16
     <div class="bg-gray-100 p-4 rounded-lg">
       <div class="flex flex-col space-y-3">
         <div class="flex items-center justify-between p-2 bg-blue-100 rounded">
-          <span class="text-sm">Coordinator</span>
+          <span class="text-sm">HA running ZHA</span>
           <div class="w-3 h-3 bg-green-500 rounded-full"></div>
         </div>
         <div class="flex items-center justify-between p-2 bg-green-100 rounded">
-          <span class="text-sm">Light Switch</span>
+          <span class="text-sm">Window Covering</span>
           <div class="w-3 h-3 bg-green-500 rounded-full"></div>
         </div>
         <div class="flex items-center justify-between p-2 bg-purple-100 rounded">
-          <span class="text-sm">Temp Sensor</span>
+          <span class="text-sm">Vibration Detector</span>
           <div class="w-3 h-3 bg-green-500 rounded-full"></div>
         </div>
         <div class="flex items-center justify-between p-2 bg-orange-100 rounded">
-          <span class="text-sm">Motion Sensor</span>
+          <span class="text-sm">CO2/Temp/Humidity</span>
           <div class="w-3 h-3 bg-green-500 rounded-full"></div>
         </div>
         <div class="flex items-center justify-between p-2 bg-red-100 rounded">
-          <span class="text-sm">RGB Light</span>
+          <span class="text-sm">HA Automations</span>
           <div class="w-3 h-3 bg-green-500 rounded-full"></div>
         </div>
       </div>
       <div class="mt-3 text-xs text-gray-600">
-        All devices connected and ready
+        Live demo with working automations
       </div>
     </div>
   </div>

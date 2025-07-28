@@ -8,7 +8,7 @@ layoutClass: gap-16
 **Why choose Zigbee for IoT?**
 
 - **Low power consumption** - batteries last months/years
-- **Mesh networking** - extended range & reliability
+- **Self-healing mesh networking** - extended range & reliability
 - **No WiFi dependency** - works independently
 - **Local control** - no cloud required
 - **Standards-based** - vendor interoperability
@@ -29,11 +29,11 @@ layoutClass: gap-16
       </div>
       <div class="flex items-center space-x-2 mb-2">
         <div class="w-4 h-4 bg-purple-500 rounded-full"></div>
-        <span class="text-sm">Network size: 65,000+ devices</span>
+        <span class="text-sm">Network size: hundreds of devices</span>
       </div>
       <div class="flex items-center space-x-2">
         <div class="w-4 h-4 bg-orange-500 rounded-full"></div>
-        <span class="text-sm">Latency: < 100ms</span>
+        <span class="text-sm">Achievable latency: < 100ms</span>
       </div>
     </div>
   </div>
