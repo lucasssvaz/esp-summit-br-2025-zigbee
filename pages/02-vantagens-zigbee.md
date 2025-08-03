@@ -1,5 +1,5 @@
 ---
-layout: two-cols
+layout: default
 layoutClass: gap-16
 ---
 
@@ -7,16 +7,14 @@ layoutClass: gap-16
 
 **Why choose Zigbee for IoT?**
 
-- **Low power consumption** - batteries last months/years
-- **Self-healing mesh networking** - extended range & reliability
-- **No WiFi dependency** - works independently
-- **Local control** - no cloud required
-- **Standards-based** - vendor interoperability
+- **Low power consumption** - Batteries last months/years
+- **Self-healing mesh networking** - Extended range & reliability
+- **No WiFi dependency** - Works independently
+- **Local control** - No cloud required
+- **Standards-based** - Vendor interoperability
 
-::right::
-
-<div class="grid grid-cols-1 gap-4">
-  <div class="text-center">
+<div class="flex justify-center mt-10">
+  <div class="max-w-md text-center">
     <h3 class="text-lg font-semibold mb-2">Key Benefits</h3>
     <div class="bg-blue-50 p-4 rounded-lg">
       <div class="flex items-center space-x-2 mb-2">

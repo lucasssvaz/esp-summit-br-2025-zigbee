@@ -1,42 +1,30 @@
 ---
-layout: two-cols
+layout: default
 layoutClass: gap-16
 ---
 
-# Temperature/Humidity Sleepy Sensor
+# Temperature/Humidity Sleepy Sensor (ED)
 
-**Battery-powered environmental sensor**
+**Battery-powered environmental sensor - [Zigbee_Temp_Hum_Sensor_Sleepy](https://github.com/espressif/arduino-esp32/tree/master/libraries/Zigbee/examples/Zigbee_Temp_Hum_Sensor_Sleepy)**
 
-## Hardware Setup
-- **ESP32-H2/C6/C5** - low power consumption
-- **Internal temp sensor** - ESP32 built-in sensor
-- **Boot button** - factory reset (10s press)
-- **Deep sleep mode** - 55s sleep cycles
-
-## Zigbee Features
-- **End Device role** - battery powered configuration
-- **Measurement clusters** - temperature, humidity
-- **Reporting cycle** - every 1 minute (55s sleep + 5s active)
-- **Battery monitoring** - voltage and percentage reporting
-
-::right::
-
-```cpp
+````md magic-move {lines: true}
+```cpp {*|3-7|11|*}
 #include "Zigbee.h"
 
 /* Zigbee temperature + humidity sensor configuration */
 #define TEMP_SENSOR_ENDPOINT_NUMBER 10
 
 #define uS_TO_S_FACTOR 1000000ULL /* Conversion factor for micro seconds to seconds */
-#define TIME_TO_SLEEP  55         /* Sleep for 55s will + 5s delay for establishing connection => data reported every 1 minute */
+#define TIME_TO_SLEEP  55         /* Sleep 55s + 5s delay for connection => data reported every 1 minute */
 
 uint8_t button = BOOT_PIN;
 
 ZigbeeTempSensor zbTempSensor = ZigbeeTempSensor(TEMP_SENSOR_ENDPOINT_NUMBER);
+```
 
-/************************ Temp sensor *****************************/
-void meausureAndSleep() {
-  // Measure temperature sensor value
+```cpp {*|2-6|8-10|12-18|19-21|*}
+void measureAndSleep() {
+  // Measure internal CPU temperature
   float temperature = temperatureRead();
 
   // Use temperature value as humidity value to demonstrate both temperature and humidity
@@ -57,45 +45,40 @@ void meausureAndSleep() {
   Serial.println("Going to sleep now");
   esp_deep_sleep_start();
 }
+```
 
-/********************* Arduino functions **************************/
+```cpp {*|2-3|5-6|8-9|11-12|14-15|17-18|20-21}
 void setup() {
   Serial.begin(115200);
-
-  // Init button switch
   pinMode(button, INPUT_PULLUP);
 
-  // Configure the wake up source and set to wake up every 5 seconds
+  // Configure the wake up source and set to wake up every 55 seconds
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
 
-  // Optional: set Zigbee device name and model
-  zbTempSensor.setManufacturerAndModel("Espressif", "SleepyZigbeeTempSensor");
-
-  // Set minimum and maximum temperature measurement value (10-50°C is default range for chip temperature measurement)
+  // Set minimum and maximum temperature measurement value
   zbTempSensor.setMinMaxValue(10, 50);
 
-  // Set tolerance for temperature measurement in °C (lowest possible value is 0.01°C)
+  // Set tolerance/precision for temperature measurement in °C
   zbTempSensor.setTolerance(1);
 
   // Set power source to battery, battery percentage and battery voltage (now 100% and 3.5V for demonstration)
-  // The value can be also updated by calling zbTempSensor.setBatteryPercentage(percentage) or zbTempSensor.setBatteryVoltage(voltage) anytime after Zigbee.begin()
   zbTempSensor.setPowerSource(ZB_POWER_SOURCE_BATTERY, 100, 35);
 
   // Add humidity cluster to the temperature sensor device with min, max and tolerance values
   zbTempSensor.addHumiditySensor(0, 100, 1);
 
-  // Add endpoint to Zigbee Core
+  Serial.println("Adding ZigbeeTempSensor endpoint to Zigbee Core");
   Zigbee.addEndpoint(&zbTempSensor);
+```
 
-  // Create a custom Zigbee configuration for End Device with keep alive 10s to avoid interference with reporting data
+```cpp {1-3|5-6|8-17|19-20|*}
+  // Create a custom Zigbee configuration for ED with keep alive 10s to avoid issues with reporting data
   esp_zb_cfg_t zigbeeConfig = ZIGBEE_DEFAULT_ED_CONFIG();
   zigbeeConfig.nwk_cfg.zed_cfg.keep_alive = 10000;
 
   // For battery powered devices, it can be better to set timeout for Zigbee Begin to lower value to save battery
-  // If the timeout has been reached, the network channel mask will be reset and the device will try to connect again after reset (scanning all channels)
   Zigbee.setTimeout(10000);  // Set timeout for Zigbee Begin to 10s (default is 30s)
 
-  // When all EPs are registered, start Zigbee in End Device mode
   if (!Zigbee.begin(&zigbeeConfig, false)) {
     Serial.println("Zigbee failed to start!");
     Serial.println("Rebooting...");
@@ -103,38 +86,21 @@ void setup() {
   }
   Serial.println("Connecting to network");
   while (!Zigbee.connected()) {
-    Serial.print(".");
     delay(100);
   }
-  Serial.println();
   Serial.println("Successfully connected to Zigbee network");
 
-  // Delay approx 1s (may be adjusted) to allow establishing proper connection with coordinator, needed for sleepy devices
+  // Delay approx 1s to allow establishing proper connection with coordinator, needed for sleepy devices
   delay(1000);
 }
+```
 
+```cpp {*|5|*}
 void loop() {
-  // Checking button for factory reset
-  if (digitalRead(button) == LOW) {  // Push button pressed
-    // Key debounce handling
-    delay(100);
-    int startTime = millis();
-    while (digitalRead(button) == LOW) {
-      delay(50);
-      if ((millis() - startTime) > 10000) {
-        // If key pressed for more than 10secs, factory reset Zigbee and reboot
-        Serial.println("Resetting Zigbee to factory and rebooting in 1s.");
-        delay(1000);
-        // Optional set reset in factoryReset to false, to not restart device after erasing nvram, but set it to endless sleep manually instead
-        Zigbee.factoryReset(false);
-        Serial.println("Going to endless sleep, press RESET button or power off/on the device to wake up");
-        esp_sleep_disable_wakeup_source(ESP_SLEEP_WAKEUP_TIMER);
-        esp_deep_sleep_start();
-      }
-    }
-  }
+  // ... Same as previous example ...
 
   // Call the function to measure temperature and put the device to sleep
-  meausureAndSleep();
+  measureAndSleep();
 }
-``` 
+```
+```` 

@@ -115,11 +115,6 @@ hide: false
 ---
 
 ---
-src: ./pages/14-conclusao-recursos.md
-hide: false
----
-
----
 layout: center
 class: text-center
 ---
@@ -137,4 +132,25 @@ class: text-center
   </div>
 </div>
 
-<PoweredBySlidev mt-10 />
+<div style="margin-top: 3rem;">
+  <div style="font-size: 1rem; margin-bottom: 1rem;">
+    <strong>Resources & Links</strong>
+  </div>
+  <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <div style="text-align: center;">
+      <a href="https://docs.espressif.com/projects/arduino-esp32/en/latest/zigbee/zigbee.html" target="_blank" style="color: #007acc; text-decoration: none;">
+        📚 Zigbee Documentation
+      </a>
+    </div>
+    <div style="text-align: center;">
+      <a href="https://github.com/espressif/arduino-esp32" target="_blank" style="color: #007acc; text-decoration: none;">
+        🔧 arduino-esp32 Repository
+      </a>
+    </div>
+    <div style="text-align: center;">
+      <a href="https://github.com/lucasssvaz" target="_blank" style="color: #007acc; text-decoration: none;">
+        👨‍💻 @lucasssvaz on GitHub
+      </a>
+    </div>
+  </div>
+</div>

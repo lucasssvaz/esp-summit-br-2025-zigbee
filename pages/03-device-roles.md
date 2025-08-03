@@ -1,6 +1,7 @@
 ---
 layout: two-cols
 layoutClass: gap-16
+class: text-base
 ---
 
 # Zigbee Device Roles
@@ -8,28 +9,27 @@ layoutClass: gap-16
 **Three types of devices in a Zigbee network**
 
 ## Coordinator
-- **Network manager** - forms the network
-- **Always powered** - mains connected
-- **Single per network** - entry point
-- **Stores network info** - security keys
+- **Network manager** - Forms the network
+- **Always powered** - Mains connected
+- **Single per network** - Entry point
+- **Stores network info** - Security keys
 
 ## Router
-- **Data relay** - extends network range
-- **Always listening** - mains powered
-- **Multiple allowed** - mesh backbone
-- **Can join devices** - parent role
-
-## End Device
-- **Battery powered** - sleep mode
-- **Limited range** - direct connection
-- **Simple operation** - sensors/actuators
-- **Parent dependent** - router/coordinator
+- **Data relay** - Extends network range
+- **Always listening** - Mains powered
+- **Multiple allowed** - Mesh backbone
+- **Can join devices** - Parent role
 
 ::right::
 
-<div class="grid grid-cols-1 gap-4">
+## End Device
+- **Battery powered** - Sleep mode
+- **Limited range** - Direct connection
+- **Simple operation** - Sensors/actuators
+- **Parent dependent** - Router/coordinator
+
+<div class="grid grid-cols-1 gap-4 mt-2">
   <div class="text-center">
-    <h3 class="text-lg font-semibold mb-2">Device Hierarchy</h3>
     <div class="bg-gray-100 p-4 rounded-lg">
       <div class="flex flex-col items-center space-y-3">
         <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">C</div>
