@@ -4,14 +4,14 @@ layoutClass: gap-16
 class: text-base
 ---
 
-# Espressif Zigbee Limitations
+# Limitações do Zigbee da Espressif
 
-**Important considerations for development**
+**Considerações importantes para desenvolvimento**
 
-- **Radio switching** - Required to manage WiFi/Zigbee transitions. WiFi and Zigbee can't run simultaneously.
-- **Memory management** - Limited RAM for large networks.
-- **Power optimization** - Higher power consumption than Zigbee dedicated chips. Requires effective use of sleep modes.
-- **Network size** - Practical limit of ~50 devices per coordinator.
+- **Alternância de rádio** - Necessário gerenciar WiFi/Zigbee. WiFi e Zigbee não podem funcionar ao mesmo tempo.
+- **Gerenciamento de memória** - RAM limitada para redes grandes.
+- **Otimização de energia** - Maior consumo de energia que chips dedicados a Zigbee. Requer uso eficaz dos modos de sleep.
+- **Tamanho da rede** - Limite prático de ~50 dispositivos por coordinator.
 
 <figure class="flex flex-col justify-center items-center">
   <img src="/images/esp-thread-border-router-board.png" alt="ESP Thread Border Router / Zigbee Gateway V1.2 Board" class="w-1/4" />

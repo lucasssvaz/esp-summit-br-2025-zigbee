@@ -3,19 +3,19 @@ layout: default
 layoutClass: gap-16
 ---
 
-# Temperature/Humidity Sleepy Sensor (ED)
+# Sensor de Temp./Umidade com Sleep (ED)
 
-**Battery-powered environmental sensor - [Zigbee_Temp_Hum_Sensor_Sleepy](https://github.com/espressif/arduino-esp32/tree/master/libraries/Zigbee/examples/Zigbee_Temp_Hum_Sensor_Sleepy)**
+**Sensor de ambiente alimentado por bateria - [Zigbee_Temp_Hum_Sensor_Sleepy](https://github.com/espressif/arduino-esp32/tree/master/libraries/Zigbee/examples/Zigbee_Temp_Hum_Sensor_Sleepy)**
 
 ````md magic-move {lines: true}
 ```cpp {*|3-7|11|*}
 #include "Zigbee.h"
 
-/* Zigbee temperature + humidity sensor configuration */
+/* Configuração do sensor de temperatura + umidade Zigbee */
 #define TEMP_SENSOR_ENDPOINT_NUMBER 10
 
-#define uS_TO_S_FACTOR 1000000ULL /* Conversion factor for micro seconds to seconds */
-#define TIME_TO_SLEEP  55         /* Sleep 55s + 5s delay for connection => data reported every 1 minute */
+#define uS_TO_S_FACTOR 1000000ULL /* Fator de conversão de microssegundos para segundos */
+#define TIME_TO_SLEEP  55         /* Sleep de 55+5s de atraso para conexão => dados reportados a cada 1 minuto */
 
 uint8_t button = BOOT_PIN;
 
@@ -24,82 +24,84 @@ ZigbeeTempSensor zbTempSensor = ZigbeeTempSensor(TEMP_SENSOR_ENDPOINT_NUMBER);
 
 ```cpp {*|2-6|8-10|12-18|19-21|*}
 void measureAndSleep() {
-  // Measure internal CPU temperature
+  // Mede temperatura interna da CPU
   float temperature = temperatureRead();
 
-  // Use temperature value as humidity value to demonstrate both temperature and humidity
+  // Usa valor de temperatura como valor de umidade para demonstrar temperatura e umidade
   float humidity = temperature;
 
-  // Update temperature and humidity values in Temperature sensor EP
+  // Atualiza valores de temperatura e umidade no EP do sensor de temperatura
   zbTempSensor.setTemperature(temperature);
   zbTempSensor.setHumidity(humidity);
 
-  // Report temperature and humidity values
+  // Reporta valores de temperatura e umidade
   zbTempSensor.report();
-  Serial.printf("Reported temperature: %.2f°C, Humidity: %.2f%%\r\n", temperature, humidity);
+  Serial.printf("Temperatura reportada: %.2f°C, Umidade: %.2f%%\r\n", temperature, humidity);
 
-  // Add small delay to allow the data to be sent before going to sleep
+  // Adiciona pequeno atraso para permitir que os dados sejam enviados antes do sleep
   delay(100);
 
-  // Put device to deep sleep
-  Serial.println("Going to sleep now");
+  // Coloca dispositivo em deep sleep
+  Serial.println("Entrando em deep sleep");
   esp_deep_sleep_start();
 }
 ```
 
-```cpp {*|2-3|5-6|8-9|11-12|14-15|17-18|20-21}
+```cpp {*|2-3|5-6|8-9|11-12|14-16|18-19|21-22}
 void setup() {
   Serial.begin(115200);
   pinMode(button, INPUT_PULLUP);
 
-  // Configure the wake up source and set to wake up every 55 seconds
+  // Configura o timer de despertar e define para acordar a cada 55 segundos
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
 
-  // Set minimum and maximum temperature measurement value
+  // Define valor mínimo e máximo de medição de temperatura
   zbTempSensor.setMinMaxValue(10, 50);
 
-  // Set tolerance/precision for temperature measurement in °C
+  // Define tolerância/precisão para medição de temperatura em °C
   zbTempSensor.setTolerance(1);
 
-  // Set power source to battery, battery percentage and battery voltage (now 100% and 3.5V for demonstration)
+  // Define fonte de energia como bateria, porcentagem da bateria e tensão da bateria
+  // (agora 100% e 3.5V para demonstração)
   zbTempSensor.setPowerSource(ZB_POWER_SOURCE_BATTERY, 100, 35);
 
-  // Add humidity cluster to the temperature sensor device with min, max and tolerance values
+  // Adiciona cluster de umidade ao dispositivo sensor de temperatura com valores min, max e tolerância
   zbTempSensor.addHumiditySensor(0, 100, 1);
 
-  Serial.println("Adding ZigbeeTempSensor endpoint to Zigbee Core");
+  Serial.println("Adicionando endpoint ZigbeeTempSensor ao Zigbee Core");
   Zigbee.addEndpoint(&zbTempSensor);
 ```
 
-```cpp {1-3|5-6|8-17|19-20|*}
-  // Create a custom Zigbee configuration for ED with keep alive 10s to avoid issues with reporting data
+```cpp {1-4|6-8|10-18|20-21|*}
+  // Cria uma configuração Zigbee personalizada para ED com keep alive de 10s para
+  // evitar problemas com o envio de dados
   esp_zb_cfg_t zigbeeConfig = ZIGBEE_DEFAULT_ED_CONFIG();
   zigbeeConfig.nwk_cfg.zed_cfg.keep_alive = 10000;
 
-  // For battery powered devices, it can be better to set timeout for Zigbee Begin to lower value to save battery
-  Zigbee.setTimeout(10000);  // Set timeout for Zigbee Begin to 10s (default is 30s)
+  // Para dispositivos alimentados por bateria, pode ser melhor definir timeout para
+  // iniciar o Zigbee para um valor menor para economizar bateria
+  Zigbee.setTimeout(10000);  // Define timeout para iniciar o Zigbee para 10s (padrão é 30s)
 
   if (!Zigbee.begin(&zigbeeConfig, false)) {
-    Serial.println("Zigbee failed to start!");
-    Serial.println("Rebooting...");
-    ESP.restart();  // If Zigbee failed to start, reboot the device and try again
+    Serial.println("Zigbee falhou ao iniciar!");
+    Serial.println("Reiniciando...");
+    ESP.restart();  // Se Zigbee falhou ao iniciar, reinicia o dispositivo e tenta novamente
   }
-  Serial.println("Connecting to network");
   while (!Zigbee.connected()) {
     delay(100);
   }
-  Serial.println("Successfully connected to Zigbee network");
+  Serial.println("Conectado com sucesso à rede Zigbee");
 
-  // Delay approx 1s to allow establishing proper connection with coordinator, needed for sleepy devices
+  // Atraso de 1s para permitir conexão adequada com coordinator, necessário para dispositivos com sleep
   delay(1000);
 }
 ```
 
 ```cpp {*|5|*}
 void loop() {
-  // ... Same as previous example ...
+  // ... Mesmo que exemplo anterior ...
 
-  // Call the function to measure temperature and put the device to sleep
+  // Chama a função para medir temperatura e colocar o dispositivo em sleep
   measureAndSleep();
 }
 ```

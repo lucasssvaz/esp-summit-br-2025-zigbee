@@ -3,50 +3,50 @@ layout: two-cols
 layoutClass: gap-16
 ---
 
-# Zigbee Endpoints
+# Endpoints Zigbee
 
-**Building blocks for device functionality**
+**Blocos de construção para funcionalidade do dispositivo**
 
-## Endpoints Classes
-- **Virtual interfaces** - Up to 240 per device
-- **Independent functions** - Each serves specific purpose
-- **Cluster groups** - Related functionality bundled
-- **Device identification** - Profile and device IDs
+## Classes de Endpoints
+- **Interfaces virtuais** - Até 240 por dispositivo
+- **Funções independentes** - Cada uma serve um propósito específico
+- **Grupos de clusters** - Funcionalidades relacionadas agrupadas
+- **Identificação do dispositivo** - Perfil e IDs de dispositivo
 
 ::right::
 
 <div class="grid grid-cols-1 gap-4 mt-12">
   <div class="text-center">
-    <h3 class="text-lg font-semibold mb-2">Examples of Endpoints</h3>
+    <h3 class="text-lg font-semibold mb-2">Exemplos de Endpoints</h3>
     <div class="bg-gray-100 p-4 rounded-lg">
       <div class="grid grid-cols-2 gap-2 text-xs">
         <div class="bg-blue-100 p-2 rounded flex flex-col justify-center">
-          <div class="font-bold">Basic</div>
-          <div>Binary, analog, multistate I/O</div>
+          <div class="font-bold">Básicos</div>
+          <div>I/O binário, analógico, multistate</div>
         </div>
         <div class="bg-green-100 p-2 rounded flex flex-col justify-center">
-          <div class="font-bold">Switches</div>
-          <div>On/off, color dimmable, power outlet, contact switch</div>
+          <div class="font-bold">Interruptores</div>
+          <div>Liga/desliga, dimmer, tomada, interruptor de contato</div>
         </div>
         <div class="bg-purple-100 p-2 rounded flex flex-col justify-center">
-          <div class="font-bold">Lights</div>
-          <div>On/off, dimmable, color dimmable</div>
+          <div class="font-bold">Lâmpadas</div>
+          <div>Liga/desliga, dimmer, dimmer de cor</div>
         </div>
         <div class="bg-orange-100 p-2 rounded flex flex-col justify-center">
-          <div class="font-bold">Controllers</div>
-          <div>Thermostat, fan control</div>
+          <div class="font-bold">Controladores</div>
+          <div>Termostato, controle de ventilador</div>
         </div>
         <div class="bg-red-100 p-2 rounded flex flex-col justify-center">
-          <div class="font-bold">Sensors</div>
-          <div>Temperature, humidity, CO2, illuminance</div>
+          <div class="font-bold">Sensores</div>
+          <div>Temperatura, umidade, CO2, iluminância</div>
         </div>
         <div class="bg-yellow-100 p-2 rounded flex flex-col justify-center">
-          <div class="font-bold">Others</div>
-          <div>Gateway, range extender</div>
+          <div class="font-bold">Outros</div>
+          <div>Gateway, extensor de alcance</div>
         </div>
       </div>
     </div>
   </div>
 </div> 
 
-- For more information and other endpoints, see the [documentation](https://docs.espressif.com/projects/arduino-esp32/en/latest/zigbee/zigbee.html).
+- Para mais informações e outros endpoints, consulte a [documentação](https://docs.espressif.com/projects/arduino-esp32/en/latest/zigbee/zigbee.html).

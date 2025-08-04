@@ -13,12 +13,12 @@ aspectRatio: 16/9
 # real width of the canvas, unit in px
 canvasWidth: 980
 # some information about your slides (markdown enabled)
-title: Zigbee with Arduino
+title: Zigbee com Arduino
 info: |
-  ## Zigbee with Arduino: connecting your devices to Home Assistant
-  Presentation on using Espressif's built-in Zigbee library with Arduino.
+  ## Zigbee com Arduino: conectando seus dispositivos ao Home Assistant
+  Apresentação sobre o uso da biblioteca Zigbee integrada da Espressif com Arduino.
 
-  Learn more at [Sli.dev](https://sli.dev)
+  [@lucasssvaz](https://github.com/lucasssvaz)
 # apply unocss classes to the current slide
 class: text-center text-base
 # https://sli.dev/features/drawing
@@ -36,9 +36,9 @@ pollSettings:
   anonymous: true
 ---
 
-# Zigbee with Arduino
+# Zigbee com Arduino
 
-<span style="font-size: 2rem;">Connecting your devices to Home Assistant</span>
+<span style="font-size: 2rem;">Conectando seus dispositivos ao Home Assistant</span>
 
 <div style="position: absolute; bottom: 2rem; left: 0; width: 100%; text-align: center;">
   Lucas Saavedra Vaz<br>
@@ -46,7 +46,7 @@ pollSettings:
 </div>
 
 <!--
-This presentation covers how to use the Zigbee library included in the Espressif Arduino Core to create devices that integrate seamlessly with Home Assistant.
+Esta apresentação aborda como usar a biblioteca Zigbee incluída no Arduino Core da Espressif para criar dispositivos que se integram perfeitamente ao Home Assistant.
 -->
 
 ---
@@ -119,13 +119,13 @@ layout: center
 class: text-center
 ---
 
-# Thank You!
+# Obrigado!
 
-## Questions & Discussion
+## Perguntas e Discussão
 
 <div style="margin-top: 2rem;">
   <div style="font-size: 1.2rem; margin-bottom: 1rem;">
-    Let's build amazing Zigbee devices together!
+    Vamos construir dispositivos Zigbee juntos!
   </div>
   <div style="font-size: 0.9rem; color: #666;">
     ESP32 + Arduino + Zigbee + Home Assistant
@@ -134,22 +134,22 @@ class: text-center
 
 <div style="margin-top: 3rem;">
   <div style="font-size: 1rem; margin-bottom: 1rem;">
-    <strong>Resources & Links</strong>
+    <strong>Recursos e Links</strong>
   </div>
   <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
     <div style="text-align: center;">
       <a href="https://docs.espressif.com/projects/arduino-esp32/en/latest/zigbee/zigbee.html" target="_blank" style="color: #007acc; text-decoration: none;">
-        📚 Zigbee Documentation
+        📚 Documentação Zigbee
       </a>
     </div>
     <div style="text-align: center;">
       <a href="https://github.com/espressif/arduino-esp32" target="_blank" style="color: #007acc; text-decoration: none;">
-        🔧 arduino-esp32 Repository
+        🔧 Repositório arduino-esp32
       </a>
     </div>
     <div style="text-align: center;">
       <a href="https://github.com/lucasssvaz" target="_blank" style="color: #007acc; text-decoration: none;">
-        👨‍💻 @lucasssvaz on GitHub
+        👨‍💻 @lucasssvaz no GitHub
       </a>
     </div>
   </div>

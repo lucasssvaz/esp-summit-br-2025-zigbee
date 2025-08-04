@@ -4,25 +4,25 @@ layoutClass: gap-16
 class: text-base
 ---
 
-# Home Assistant Integration
+# Integração Home Assistant
 
-**Seamless Zigbee device integration**
+**Integração perfeita de dispositivos Zigbee**
 
 <div class="mt-4"></div>
 
-## Auto-Discovery
-- **ZHA** - Home Assistant's built-in Zigbee integration
-- **Zigbee2MQTT** - Alternative integration with MQTT broker
-- **Standard HA profile** - Arduino library uses Home Automation profile
-- **Custom setup** - Needed for OTA updates or customised clusters
+## Descoberta Automática
+- **ZHA** - Integração Zigbee integrada do Home Assistant
+- **Zigbee2MQTT** - Integração alternativa com broker MQTT
+- **Perfil HA padrão** - Biblioteca Arduino usa perfil Home Automation
+- **Configuração personalizada** - Necessária para atualizações OTA ou clusters personalizados
 
 ::right::
 
 <div class="mt-10"></div>
 
-## Device Recognition
-- **Standard clusters** - Recognized automatically (On/Off, Level, etc.)
-- **Device profiles** - Proper entity creation based on endpoint types
-- **Automatic reporting** - Configured intervals send updates
-- **Command support** - Bidirectional control (HA - device)
-- **Battery monitoring** - Voltage and percentage for sleepy devices
+## Reconhecimento de Dispositivo
+- **Clusters padrões** - Reconhecidos automaticamente (On/Off, Level, etc.)
+- **Perfis de dispositivo** - Criação adequada de entidades baseada nos tipos de endpoint
+- **Reportagem automática** - Intervalos configurados para envio de atualizações
+- **Suporte a comandos** - Controle bidirecional (HA - dispositivo)
+- **Monitoramento de bateria** - Tensão e porcentagem para dispositivos com sleep

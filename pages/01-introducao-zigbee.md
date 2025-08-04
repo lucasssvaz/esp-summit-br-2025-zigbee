@@ -3,20 +3,20 @@ layout: two-cols
 layoutClass: gap-16
 ---
 
-# Zigbee Protocol
+# Protocolo Zigbee
 
-**Low-power wireless mesh network protocol**
+**Protocolo de rede mesh sem fio de baixo consumo**
 
-- **2.4 GHz** frequency band
-- **IEEE 802.15.4** standard
-- **Mesh networking** - Devices relay data
-- **Low latency** - Fast response
-- **Interoperable** - Zigbee Alliance certified
+- Frequência **2.4 GHz**
+- Padrão **IEEE 802.15.4**
+- **Rede mesh** - Dispositivos retransmitem dados
+- **Baixa latência** - Resposta rápida
+- **Interoperável** - Certificado pela Zigbee Alliance
 
-<div class="mt-14"></div>
+<div class="mt-8"></div>
 <div class="grid grid-cols-1 gap-4">
   <div class="text-center">
-    <h5 class="text-lg font-semibold mb-2">Zigbee Node Types</h5>
+    <h5 class="text-lg font-semibold mb-2">Tipos de Nós Zigbee</h5>
     <div class="bg-gray-100 p-4 rounded-lg">
       <div class="grid grid-cols-3 gap-4 items-center">
         <div class="flex flex-col items-center">

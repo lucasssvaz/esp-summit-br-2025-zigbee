@@ -4,29 +4,33 @@ layoutClass: gap-16
 class: text-base
 ---
 
-# Zigbee Device Roles
+# Funções dos Dispositivos Zigbee
 
-**Three types of devices in a Zigbee network**
+**Três tipos de dispositivos em uma rede Zigbee**
 
-## Coordinator
-- **Network manager** - Forms the network
-- **Always powered** - Mains connected
-- **Single per network** - Entry point
-- **Stores network info** - Security keys
+<div class="mt-4"></div>
 
-## Router
-- **Data relay** - Extends network range
-- **Always listening** - Mains powered
-- **Multiple allowed** - Mesh backbone
-- **Can join devices** - Parent role
+### Coordinator
+- **Gerenciador da rede** - Forma a rede
+- **Sempre ligado** - Conectado à rede elétrica
+- **Único na rede** - Ponto de entrada
+- **Armazena informações da rede** - Chaves de segurança
+
+<div class="mt-4"></div>
+
+### Router
+- **Retransmissor de dados** - Estende o alcance da rede
+- **Sempre escutando** - Alimentado pela rede elétrica
+- **Múltiplos permitidos** - Peça central da rede mesh
+- **Pode conectar dispositivos** - Função de pai
 
 ::right::
 
-## End Device
-- **Battery powered** - Sleep mode
-- **Limited range** - Direct connection
-- **Simple operation** - Sensors/actuators
-- **Parent dependent** - Router/coordinator
+### End Device
+- **Alimentado por bateria** - Modo de sleep
+- **Alcance limitado** - Conexão direta
+- **Operação simples** - Sensores/atuadores
+- **Dependente do pai** - Router/coordinator
 
 <div class="grid grid-cols-1 gap-4 mt-2">
   <div class="text-center">

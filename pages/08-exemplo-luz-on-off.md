@@ -4,15 +4,15 @@ layoutClass: gap-16
 class: text-base
 ---
 
-# On/Off Light Example (Router)
+# Exemplo de Luz On/Off (Router)
 
-**Simple Zigbee on/off light implementation - [Zigbee_On_Off_Light](https://github.com/espressif/arduino-esp32/tree/master/libraries/Zigbee/examples/Zigbee_On_Off_Light)**
+**Implementação simples de luz Zigbee com liga/desliga - [Zigbee_On_Off_Light](https://github.com/espressif/arduino-esp32/tree/master/libraries/Zigbee/examples/Zigbee_On_Off_Light)**
 
 <div class="mt-4"></div>
 
-### Sketch Configuration
-- **Zigbee Mode** - Select if your device is a Coordinator/Router or End Device
-- **Partition Scheme** - Select the partition scheme matching the Zigbee Mode
+### Configuração do Sketch
+- **Zigbee Mode** - Selecione se seu dispositivo é um Coordinator/Router ou End Device
+- **Partition Scheme** - Selecione o esquema de partição correspondente ao Zigbee Mode
 
 <div class="mt-1"></div>
 
@@ -20,7 +20,7 @@ class: text-base
 ```cpp {*|1-2|3-7|8|*}
 #include "Zigbee.h"
 
-/* Zigbee light bulb configuration */
+/* Configuração da lâmpada Zigbee */
 #define ZIGBEE_LIGHT_ENDPOINT 1
 uint8_t led = RGB_BUILTIN;
 uint8_t button = BOOT_PIN;
@@ -38,34 +38,34 @@ void setLED(bool value) {
 void setup() {
   Serial.begin(115200);
 
-  // Init LED and turn it OFF
+  // Inicializa LED e desliga
   pinMode(led, OUTPUT);
   digitalWrite(led, LOW);
 
-  // Init button for factory reset
+  // Inicializa botão para reset de fábrica
   pinMode(button, INPUT_PULLUP);
 ```
 
 ```cpp {1-2|4-5|7-9}
-  //Optional: set Zigbee device name and model
+  // Opcional: define nome e modelo do dispositivo Zigbee
   zbLight.setManufacturerAndModel("Espressif", "ZBLightBulb");
 
-  // Set callback function for light change
+  // Define função de callback para mudança de luz
   zbLight.onLightChange(setLED);
 
-  //Add endpoint to Zigbee Core
-  Serial.println("Adding ZigbeeLight endpoint to Zigbee Core");
+  // Adiciona endpoint ao Zigbee Core
+  Serial.println("Adicionando endpoint ZigbeeLight ao Zigbee Core");
   Zigbee.addEndpoint(&zbLight);
 ```
 
 ```cpp {1-5|7-12|*}
   if (!Zigbee.begin(ZIGBEE_ROUTER)) {
-    Serial.println("Zigbee failed to start!");
-    Serial.println("Rebooting...");
+    Serial.println("Zigbee falhou ao iniciar!");
+    Serial.println("Reiniciando...");
     ESP.restart();
   }
 
-  Serial.println("Connecting to network");
+  Serial.println("Conectando à rede");
   while (!Zigbee.connected()) {
     Serial.print(".");
     delay(100);
@@ -76,13 +76,13 @@ void setup() {
 
 ```cpp {*|2|3-12|8-10|14|*}
 void loop() {
-  if (digitalRead(button) == LOW) {  // Push button pressed
+  if (digitalRead(button) == LOW) {  // Botão pressionado
     delay(100);
     int startTime = millis();
     while (digitalRead(button) == LOW) {
       delay(50);
       if ((millis() - startTime) > 3000) {
-        Serial.println("Resetting Zigbee to factory and rebooting in 1s.");
+        Serial.println("Resetando Zigbee para configuração de fábrica e reiniciando em 1s.");
         delay(1000);
         Zigbee.factoryReset();
       }

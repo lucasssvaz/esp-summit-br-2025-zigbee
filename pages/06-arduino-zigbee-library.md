@@ -4,22 +4,22 @@ layoutClass: gap-16
 class: text-base
 ---
 
-# Arduino Zigbee Library
+# Biblioteca Zigbee Arduino
 
-**Built into Espressif Arduino Core**
+**Integrada ao Arduino Core da Espressif**
 
-- **Based on the official Espressif SDK** - Production ready
-- **Zigbee 3.0 compliant** - Latest standard
-- **Home Assistant tested** - Proven compatibility
-- **Arduino API** - Familiar programming model
+- **Baseada no SDK oficial da Espressif** - Pronta para produção
+- **Compatível com Zigbee 3.0** - Padrão mais recente
+- **Testada com Home Assistant** - Compatibilidade comprovada
+- **API Arduino** - Programação familiar
 
 <div class="mt-6"></div>
 
-## Key Features
-- **No installation required** - Included in ESP32 Arduino Core since 3.0.6
-- **All device roles** - Coordinator, Router, End Device
-- **Rich endpoint types** - 20+ device classes
-- **Multiple endpoints support** - Up to 240 per device
-- **Network management** - Scanning, commissioning, binding, etc.
-- **Security support** - AES encryption
-- **Updates** - Over-the-air firmware updates
+## Características Principais
+- **Nenhuma instalação necessária** - Incluída no Arduino Core da Espressif desde 3.0.6
+- **Todas as funções de dispositivo** - Coordinator, Router, End Device
+- **Variedade de tipos de endpoint** - 20+ classes de dispositivo
+- **Suporte a múltiplos endpoints** - Até 240 por dispositivo
+- **Gerenciamento de rede** - Escaneamento, comissionamento, binding, etc.
+- **Suporte de segurança** - Criptografia AES
+- **Atualizações** - Atualizações de firmware over-the-air
